@@ -12,7 +12,7 @@ MeinPreis erlaubt dem dir den Preisverlauf eines Produkts auf deiner Seite einzu
 
 == Description ==
 MeinPreis erlaubt dem dir den Preisverlauf eines Produkts auf deiner Seite einzubinden. 
-Dazu kann beim erstellen oder bearbeiten einfach "[meinpreis:<amazon asin>]" eingefügt werden.
+Dazu kann beim erstellen oder bearbeiten einfach "[meinpreis:&lt;asin&gt;]" eingefügt werden.
 
 Ein Beispiel wäre:
 [meinpreis:B004Q3QSWQ]
@@ -21,14 +21,19 @@ Ein Beispiel wäre:
 Ganz normale Plugin Installation
 
 == Screenshots ==
-1. http://www.mein-preis.net/img/wordpress-plugin-screenshot.png
-2. http://www.mein-preis.net/img/wordpress-plugin-editor-screenshot.png
+1. So sieht das Plugin auf einer Seite aus
+2. So kann der Preisverlauf eines Produkts auf einer Seite engebunden werden
 
 == Frequently Asked Questions ==
 
 Nothing yet
 
 == Upgrade Notice ==
+
+= 1.0.0 =
+Initial release
+
+== ChangeLog ==
 
 = Version 1.0.0 =
 
