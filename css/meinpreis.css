@@ -1,0 +1,14 @@
+img.meinpreis_button {
+	border:0 !important;
+	background-color: transparent !important;
+	margin:0 !important; 
+}
+
+div.meinpreis_buttons {
+	text-align:right;
+}
+
+div.meinpreis_copy {
+	float:left;
+}
+
