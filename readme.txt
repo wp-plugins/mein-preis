@@ -21,8 +21,8 @@ Ein Beispiel wäre:
 Ganz normale Plugin Installation
 
 == Screenshots ==
-1. http://www.mein-preis.net/img/wordpress-plugin-screenshot.png
-2. http://www.mein-preis.net/img/wordpress-plugin-editor-screenshot.png
+1. So sieht das Plugin auf einer Seite aus
+2. So kann der Preisverlauf eines Produkts auf einer Seite engebunden werden
 
 == Frequently Asked Questions ==
 
