@@ -21,8 +21,14 @@ Ein Beispiel wäre:
 Ganz normale Plugin Installation
 
 == Screenshots ==
+1. http://www.mein-preis.net/img/wordpress-plugin-screenshot.png
+2. http://www.mein-preis.net/img/wordpress-plugin-editor-screenshot.png
 
-== ChangeLog ==
+== Frequently Asked Questions ==
+
+Nothing yet
+
+== Upgrade Notice ==
 
 = Version 1.0.0 =
 
