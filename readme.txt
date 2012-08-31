@@ -8,7 +8,7 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-MeinPreis erlaubt dem dir den Preisverlauf eines Produkts auf deiner Seite einzubinden. 
+MeinPreis erlaubt dir den Preisverlauf eines Produkts auf deiner Seite einzubinden. 
 
 == Description ==
 MeinPreis erlaubt dem dir den Preisverlauf eines Produkts auf deiner Seite einzubinden. 
