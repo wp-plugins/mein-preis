@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name:  Mein Preis
-Plugin URI:   http://www.mein-preis.net/sites/wordpress-plugin
+Plugin URI:   http://www.mein-preis.net/site/wordpress-plugin
 Version:      1.0.4
 Description:  Die Mein Preis Erweiterung ermöglicht das Einbinden des Preisverlaufs eines Amazon Artikels. 
 Author:       Sascha Nordquist

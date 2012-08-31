@@ -1,6 +1,6 @@
 === MeinPreis ===
 Contributors: meinpreis
-Donate link: http://www.mein-preis.net/sites/wordpress-plugin#donate
+Donate link: http://www.mein-preis.net/site/wordpress-plugin#donate
 Tags: Preisverlauf, Amazon, Preisvergleich
 Requires at least: 2.7
 Tested up to: 3.3
