@@ -14,6 +14,8 @@ MeinPreis erlaubt dem dir den Preisverlauf eines Produkts auf deiner Seite einzu
 MeinPreis erlaubt dem dir den Preisverlauf eines Produkts auf deiner Seite einzubinden. 
 Dazu kann beim erstellen oder bearbeiten einfach "[meinpreis:&lt;asin&gt;]" eingefügt werden.
 
+Weitere Details: <a href="http://www.mein-preis.net/site/wordpress-plugin">Mein Preis Wordpress Plugin</a>
+
 Ein Beispiel wäre:
 [meinpreis:B004Q3QSWQ]
 
