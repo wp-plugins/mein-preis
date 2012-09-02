@@ -1,0 +1,25 @@
+img.meinpreis_button {
+	border:0 !important;
+	background-color: transparent !important;
+	margin:0 !important; 
+}
+
+div.meinpreis_buttons {
+	text-align:right;
+}
+
+img.meinpreis_product {
+	float:left !important;
+	border:0 !important;
+	margin:0 !important;
+}
+
+div.meinpreis_twocolumn {
+	float:left;
+	width:50%;
+}
+
+div.meinpreis_clear {
+	clear:left;
+}
+
