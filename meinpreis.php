@@ -81,7 +81,7 @@ class MeinPreis {
 	}
 	
 	private function getProductImage($asin, $productInfo) {
-		return '<img class="meinpreis_product" src="'.$productInfo->imageUrl.'" alt="'.htmlspecialchars($productInfo->name).'" />';
+		return '<a href="'.$productInfo->imageUrl.'"><img class="meinpreis_product" src="'.$productInfo->imageThumbUrl.'" alt="'.htmlspecialchars($productInfo->name).'" /></a>';
 	}
 	
 	private function getBuyLink($asin, $productInfo) {
