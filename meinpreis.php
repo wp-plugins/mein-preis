@@ -69,7 +69,7 @@ class MeinPreis {
 	}
 	
 	private function addProductInfo($asin, $productInfo) {
-		return '<div class="meinpreis"><h2>'.$this->getProductLink($asin, $productInfo).'</h2><div class="meinpreis_twocolumn">'.
+		return '<div class="meinpreis"><h3>'.$this->getProductLink($asin, $productInfo).'</h3><div class="meinpreis_twocolumn">'.
 		$this->getProductImage($asin, $productInfo).'</div><div class="meinpreis_twocolumn">Preis: <b>'.$this->getPrice($productInfo).'</b><br><br>'.$this->getBuyLink($asin, $productInfo).'</div><div class="meinpreis_clear"></div>'.$this->getPriceHistoryFrame($asin).'
 </div>';
 	}
