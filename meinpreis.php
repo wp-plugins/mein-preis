@@ -35,7 +35,7 @@ class MeinPreis {
 	
 	public function changeContent($content) {
 		$content = $this->findAndReplace("/\[meinpreis[:]([a-z0-9]+)\]/i", $content);
-		$content = $this->findAndReplace("/\[meinpreis[:]([^\]]+)/i", $content);
+		$content = $this->findAndReplace("/\[meinpreis[:]([^\]]+)\]/i", $content);
 		return $content;
 	}
 	
