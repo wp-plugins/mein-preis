@@ -13,9 +13,13 @@ MeinPreis erlaubt dir den Preisverlauf eines Produkts auf deiner Seite einzubind
 == Description ==
 MeinPreis erlaubt dem dir den Preisverlauf eines Produkts auf deiner Seite einzubinden. 
 Dazu kann beim erstellen oder bearbeiten einfach "[meinpreis:&lt;asin&gt;]" eingefügt werden.
+Die &lt;asin&gt; ist die Amazon Produktnummer. 
+Man kann aber auch direkt die URL der Produktdetailseite eingeben: "[meinpreis:http://www.amazon.de/...]"
 
 Ein Beispiel wäre:
 [meinpreis:B004Q3QSWQ]
+oder
+[meinpreis:http://www.amazon.de/dp/B007H72C64]
 
 Weitere Details auf: <a href="http://www.mein-preis.net/site/wordpress-plugin">Mein Preis Wordpress Plugin</a>
 
@@ -31,6 +35,9 @@ Ganz normale Plugin Installation
 Nothing yet
 
 == Upgrade Notice ==
+
+= 1.0.6 =
+Es können nun auch Amazon Urls statt nur der Produktnummer verwendet werden 
 
 = 1.0.0 =
 Initial release
