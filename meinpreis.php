@@ -2,7 +2,7 @@
 /*
 Plugin Name:  Mein Preis
 Plugin URI:   http://www.mein-preis.net/site/wordpress-plugin
-Version:      1.0.7
+Version:      1.0.8
 Description:  Die Mein Preis Erweiterung ermöglicht das Einbinden des Preisverlaufs eines Amazon Artikels. 
 Author:       Sascha Nordquist
 Author URI:   http://www.sn7.eu/
@@ -34,12 +34,12 @@ class MeinPreis {
 	}
 	
 	public function changeContent($content) {
-		$content = $this->findAndReplace("/\[meinpreis[:]([a-z0-9]+)\]/i", $content);
-		$content = $this->findAndReplace("/\[meinpreis[:]([^\]]+)\]/i", $content);
+		$content = $this->findAndReplace("/\[meinpreis[:]([^\]]+)\]/i", $content, array($this, 'addPriceHistory'));
+		$content = $this->findAndReplace("/\[productInfo[:]([^\]]+)\]/i", $content, array($this, 'addProductInfo'));
 		return $content;
 	}
 	
-	private function findAndReplace($pattern, $content) {
+	private function findAndReplace($pattern, $content, $func) {
 		preg_match_all($pattern, $content, $result);
 		if (isset($result[1])) {
 			foreach ($result[1] as $k=>$asin) {
@@ -47,11 +47,54 @@ class MeinPreis {
 					$asin = $this->parseAsin($asin);
 				}
 				if ($asin) {
-					$content = $this->addPriceHistory($content, $result[0][$k], $asin);
+					$productInfo = $this->getProductInfo($asin);
+					$replaceStr = call_user_func_array($func, array($asin, $productInfo));
+					$content = str_replace($result[0][$k], $replaceStr, $content);
 				}
 			}
 		}
 		return $content;
+	}
+	
+	private function getProductInfo($asin) {
+		if (!isset($this->productInfos[$asin])) {
+			$this->productInfos[$asin] = $this->fetchProductInfo($asin);
+		}
+		return $this->productInfos[$asin];
+	}
+	
+	private function addPriceHistory($asin, $productInfo) {
+		return '<div class="meinpreis">'.$this->getProductLink($asin, $productInfo).$this->getPriceHistoryFrame($asin).'<div class="meinpreis_buttons">'.$this->getBuyLink($asin, $productInfo).'</div>
+</div>';
+	}
+	
+	private function addProductInfo($asin, $productInfo) {
+		return '<div class="meinpreis"><h2>'.$this->getProductLink($asin, $productInfo).'</h2><div class="meinpreis_twocolumn">'.
+		$this->getProductImage($asin, $productInfo).'</div><div class="meinpreis_twocolumn">Preis: <b>'.$this->getPrice($productInfo).'</b><br><br>'.$this->getBuyLink($asin, $productInfo).'</div><div class="meinpreis_clear"></div>'.$this->getPriceHistoryFrame($asin).'
+</div>';
+	}
+	
+	private function getPrice($productInfo) {
+		$amount = floatval($productInfo->amazonPrice)/100.0;
+		$price = number_format($amount, 2, ',','.');
+		return "$price &euro;";
+	}
+	
+	private function getProductImage($asin, $productInfo) {
+		return '<img class="meinpreis_product" src="'.$productInfo->imageUrl.'" alt="'.htmlspecialchars($productInfo->name).'" />';
+	}
+	
+	private function getBuyLink($asin, $productInfo) {
+		$buyImageSrc = plugins_url('images/buy.png', __FILE__);
+		return '<a href="'.$productInfo->buyUrl.'"><img class="meinpreis_button" src="'.$buyImageSrc.'" alt="Jetzt bei Amazon kaufen" /></a>';
+	}
+	
+	private function getProductLink($asin, $productInfo) {
+		return '<a href="'.$productInfo->url.'">'.htmlspecialchars($productInfo->name).'</a>';
+	}
+	
+	private function getPriceHistoryFrame($asin) {
+		return '<div><iframe src="http://www.mein-preis.net/Graph/'.$asin.'.html?simple" width="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" style="border: 0px; "></iframe></div>';
 	}
 	
 	private function parseAsin($uri) {
@@ -68,26 +111,11 @@ class MeinPreis {
 		return false;
 	}
 	
-	private function addPriceHistory($content, $key, $asin) {
-		if (!isset($this->productInfos[$asin])) {
-			$this->productInfos[$asin] = $this->fetchProductInfo($asin);
-		}
-		return str_replace($key, $this->getProductContent($asin), $content);
-	}
-	
 	private function fetchProductInfo($asin) {
 		$url = "http://www.mein-preis.net/api/productInfo.php?id=$asin";
 		return json_decode(file_get_contents($url));
 	}
 
-	public function getProductContent($asin) {
-		$data = $this->productInfos[$asin];
-		$buyImageSrc = plugins_url('images/buy.png', __FILE__);
-		return '<div class="meinpreis">
-<a href="'.$data->url.'">'.htmlspecialchars($data->name).'</a><div><iframe src="http://www.mein-preis.net/Graph/'.$asin.'.html?simple" width="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" style="border: 0px; "></iframe></div><div class="meinpreis_buttons">
-<a href="'.$data->buyUrl.'"><img class="meinpreis_button" src="'.$buyImageSrc.'" alt="Jetzt bei Amazon kaufen" /></a></div>
-</div>';
-	}
 }
 
 // Start this plugin once all other plugins are fully loaded
