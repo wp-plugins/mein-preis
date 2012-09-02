@@ -3,7 +3,7 @@ Contributors: meinpreis
 Donate link: http://www.mein-preis.net/site/wordpress-plugin#donate
 Tags: Preisverlauf, Amazon, Preisvergleich
 Requires at least: 2.7
-Tested up to: 3.3
+Tested up to: 3.4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
